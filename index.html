@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aja Como Quem Já É</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos personalizados */
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .font-montserrat-extrabold { font-weight: 800; }
+        .font-montserrat-bold { font-weight: 700; }
+        .font-montserrat-medium { font-weight: 500; }
+        .font-montserrat-regular { font-weight: 400; }
+        .font-montserrat-light-italic { font-weight: 300; font-style: italic; }
+
+        /* Cores personalizadas */
+        .bg-vermelho-escuro { background-color: #b21e1e; }
+        .hover\:bg-vermelho-escuro-hover:hover { background-color: #8c1818; }
+        .border-vermelho-escuro { border-color: #b21e1e; }
+        .text-vermelho-forca { color: #a4161a; }
+        .bg-vermelho-forca { background-color: #a4161a; }
+        .text-vermelho-icones { color: #e63946; }
+
+        .hero-background-image {
+            background-image: url('https://i.imgur.com/muTsgrZ.jpeg'); 
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(80%) blur(2px);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .history-background-image {
+            background-image: url('https://placehold.co/1920x1080/2d2d2d/111111?text=Quarto+Bagun%C3%A7ado');
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        @keyframes blink-border {
+            0%, 100% { border-color: #a4161a; }
+            50% { border-color: #111111; }
+        }
+        .blinking-border {
+            animation: blink-border 1.5s infinite;
+            border-width: 3px;
+            border-style: solid;
+        }
+
+        .text-h1-hero { font-size: 2.5rem; }
+        @media (min-width: 640px) { .text-h1-hero { font-size: 3rem; } }
+        @media (min-width: 768px) { .text-h1-hero { font-size: 3.75rem; } }
+        @media (min-width: 1024px) { .text-h1-hero { font-size: 4.25rem; } }
+
+        .text-h2-hero { font-size: 1rem; }
+         @media (min-width: 640px) { .text-h2-hero { font-size: 1.25rem; } }
+
+        .text-vsl-intro-hero { font-size: 1rem; }
+        @media (min-width: 640px) { .text-vsl-intro-hero { font-size: 1.125rem; } }
+        @media (min-width: 768px) { .text-vsl-intro-hero { font-size: 1.25rem; } }
+
+        .text-dor-title { font-size: 1.875rem; }
+        @media (min-width: 640px) { .text-dor-title { font-size: 2.25rem; } }
+
+        .text-dor-body { font-size: 1rem; }
+         @media (min-width: 640px) { .text-dor-body { font-size: 1.25rem; } }
+
+        .text-metodo-body { font-size: 1rem; }
+        @media (min-width: 640px) { .text-metodo-body { font-size: 1.25rem; } }
+
+        html { scroll-behavior: smooth; }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.0); /* Fundo transparente por padrão */
+            cursor: pointer;
+            /* display, align-items, justify-content são controlados pela classe no HTML */
+            transition: background-color 0.3s ease-in-out;
+        }
+        
+        /* Efeito de hover para desktop: escurece levemente o fundo do overlay */
+        @media (min-width: 640px) { /* sm breakpoint e acima */
+            .video-container:hover .video-overlay { 
+                /* background-color: rgba(0,0,0,0.2); Opcional: manter um leve hover visual no desktop */
+            }
+        }
+
+        .video-overlay i { /* Estilo do ícone de play/pause */
+           display: none !important; /* Garante que o ícone nunca seja exibido */
+        }
+
+    </style>
+</head>
+<body class="bg-[#111111] text-white overflow-x-hidden">
+
+    <section id="hero" class="relative min-h-screen flex flex-col items-center justify-center text-center p-4 md:p-6 overflow-hidden">
+        <div class="hero-background-image"></div>
+        <div class="relative z-10 bg-black bg-opacity-60 p-4 sm:p-6 md:p-8 rounded-lg w-full max-w-4xl">
+            <h1 class="font-montserrat-extrabold text-white text-h1-hero leading-tight mb-3 sm:mb-4">
+                AJA COMO QUEM JÁ É.
+            </h1>
+            <h2 class="font-montserrat-medium text-gray-200 text-h2-hero max-w-3xl mx-auto mb-6 sm:mb-8">
+                Transforme sua identidade com o protocolo mental usado por homens que decidiram parar de sobreviver e começar a liderar a própria vida.
+            </h2>
+            
+            <p class="font-montserrat-light-italic text-[#bbbbbb] text-vsl-intro-hero mb-4 sm:mb-6">
+                "Esta mensagem não é para todos. Mas se você sente que está ficando para trás... assista até o fim."
+            </p>
+
+            <div class="video-container relative aspect-video bg-black border-2 border-vermelho-escuro rounded-lg shadow-2xl overflow-hidden mx-auto max-w-2xl mb-6 sm:mb-8 group">
+                <div id="youtube-player" class="w-full h-full"></div>
+                {/* Overlay sempre presente e flexível, mas o ícone interno será invisível */}
+                <div id="video-overlay" class="video-overlay flex items-center justify-center"> 
+                    <i id="play-pause-icon" class="fas fa-play"></i> 
+                </div>
+            </div>
+
+            <a href="https://pay.kiwify.com/CrQsgb3" target="_blank" class="bg-vermelho-forca text-white font-montserrat-bold py-3 px-6 text-md sm:py-4 sm:px-10 sm:text-lg rounded-lg hover:bg-vermelho-escuro transition-all duration-300 ease-in-out transform hover:scale-105 inline-block">
+                QUERO TRANSFORMAR MINHA IDENTIDADE AGORA
+            </a>
+        </div>
+    </section>
+
+    <section id="dor" class="bg-[#1a1a1a] py-12 md:py-24 px-4 sm:px-6">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="font-montserrat-bold text-white text-dor-title mb-10 sm:mb-12">
+                Você sente que nasceu pra mais. Mas vive aquém.
+            </h2>
+            <div class="space-y-6 sm:space-y-8 text-dor-body text-white text-left md:text-center leading-relaxed max-w-2xl mx-auto">
+                <p>Aquela sensação constante de que existe um potencial gigantesco aí dentro, mas que, por algum motivo, ele permanece adormecido, trancado. Você vê os dias passarem, as semanas, os meses... e a mudança real não acontece.</p>
+                <p>A rotina te engole. As desculpas se acumulam. E a frustração de não estar vivendo a vida que você sabe que merece se torna um fardo pesado, quase insuportável.</p>
+                <p>O arrependimento silencioso por oportunidades perdidas, por decisões não tomadas, por ter se contentado com menos do que sua alma clama. Isso te consome?</p>
+            </div>
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-8 sm:space-y-0 sm:space-x-8 md:space-x-12 mt-10 sm:mt-12">
+                <div class="flex flex-col items-center text-center">
+                    <i class="fas fa-theater-masks text-vermelho-icones text-4xl sm:text-5xl mb-2 sm:mb-3"></i>
+                    <span class="text-white font-montserrat-medium text-sm sm:text-base">Frustração</span>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                    <i class="fas fa-sync-alt text-vermelho-icones text-4xl sm:text-5xl mb-2 sm:mb-3"></i>
+                    <span class="text-white font-montserrat-medium text-sm sm:text-base">Rotina</span>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                    <i class="fas fa-undo-alt text-vermelho-icones text-4xl sm:text-5xl mb-2 sm:mb-3"></i>
+                    <span class="text-white font-montserrat-medium text-sm sm:text-base">Arrependimento</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="metodo" class="bg-[#111111] py-12 md:py-24 px-4 sm:px-6">
+        <div class="container mx-auto max-w-3xl text-center">
+            <h2 class="font-montserrat-extrabold text-white text-3xl sm:text-4xl md:text-5xl mb-4 sm:mb-6">
+                O Protocolo “Atue como se, até se tornar™”
+            </h2>
+            <p class="font-montserrat-medium text-gray-300 text-lg sm:text-xl md:text-2xl mb-10 sm:mb-12">
+                Forjado no estoicismo. Validado na neurociência. Refinado na dor real.
+            </p>
+            <div class="space-y-6 text-metodo-body text-white text-left max-w-2xl mx-auto">
+                <div class="flex items-start space-x-3 sm:space-x-4">
+                    <i class="fas fa-check-circle text-vermelho-icones text-xl sm:text-2xl mt-1"></i>
+                    <p><strong class="font-montserrat-bold">Clareza de Identidade:</strong> Descubra quem você realmente quer ser e alinhe suas ações com essa visão.</p>
+                </div>
+                <div class="flex items-start space-x-3 sm:space-x-4">
+                    <i class="fas fa-check-circle text-vermelho-icones text-xl sm:text-2xl mt-1"></i>
+                    <p><strong class="font-montserrat-bold">Reprogramação Mental:</strong> Substitua crenças limitantes por uma mentalidade de poder e realização.</p>
+                </div>
+                <div class="flex items-start space-x-3 sm:space-x-4">
+                    <i class="fas fa-check-circle text-vermelho-icones text-xl sm:text-2xl mt-1"></i>
+                    <p><strong class="font-montserrat-bold">Ação Consistente:</strong> Desenvolva a disciplina para agir de acordo com sua nova identidade, todos os dias.</p>
+                </div>
+                <div class="flex items-start space-x-3 sm:space-x-4">
+                    <i class="fas fa-check-circle text-vermelho-icones text-xl sm:text-2xl mt-1"></i>
+                    <p><strong class="font-montserrat-bold">Resiliência Inabalável:</strong> Aprenda a encarar desafios como oportunidades de crescimento, não como obstáculos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="historia" class="relative bg-black py-12 md:py-24 px-4 sm:px-6 overflow-hidden">
+        <div class="history-background-image"></div>
+        <div class="container mx-auto max-w-4xl relative z-10">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="font-montserrat-bold text-white text-2xl sm:text-3xl md:text-4xl mb-3 sm:mb-4">Minha Jornada, Sua Possibilidade</h2>
+                <p class="text-gray-300 text-md sm:text-lg md:text-xl leading-relaxed">Eu também já estive onde você está. Preso em um ciclo de autossabotagem, sentindo que a vida passava por mim. Esta não é apenas uma teoria; é um caminho que eu trilhei e que transformou tudo.</p>
+            </div>
+
+            <div class="bg-[#1a1a1a] p-6 sm:p-8 md:p-10 rounded-lg shadow-xl mb-10 sm:mb-12">
+                <h3 class="font-montserrat-bold text-white text-xl sm:text-2xl mb-3 sm:mb-4">Carta Aberta a Você:</h3>
+                <p class="text-gray-300 leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">Lembro-me das noites em claro, do peso no peito, da sensação de estar <strong class="text-vermelho-icones font-montserrat-medium">desconectado de mim mesmo</strong>. Aquele quarto bagunçado não era só um espaço físico, era o reflexo da minha mente.</p>
+                <p class="text-gray-300 leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">Decidi que não seria mais vítima das circunstâncias. Mergulhei fundo, estudei, apliquei e, o mais importante, <strong class="text-vermelho-icones font-montserrat-medium">AGI como o homem que eu sabia que poderia ser</strong>. A transformação foi dolorosa, mas libertadora.</p>
+                <p class="text-gray-300 leading-relaxed text-sm sm:text-base">Hoje, minha missão é compartilhar as ferramentas que me ergueram, para que você também possa construir sua fortaleza interna.</p>
+            </div>
+
+            <h3 class="font-montserrat-bold text-white text-2xl sm:text-3xl text-center mb-8 sm:mb-10">O Que Dizem Aqueles Que Decidiram Agir:</h3>
+            <div class="grid md:grid-cols-2 gap-6 sm:gap-8">
+                <div class="bg-[#1f1f1f] p-5 sm:p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-3 sm:mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/76.jpg" alt="Foto Depoimento 1" class="w-12 h-12 sm:w-16 sm:h-16 rounded-full mr-3 sm:mr-4 border-2 border-vermelho-icones object-cover">
+                        <div>
+                            <h4 class="font-montserrat-bold text-white text-lg sm:text-xl">Carlos M.</h4>
+                            <p class="text-gray-400 text-xs sm:text-sm">Engenheiro, 34 anos</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic text-sm sm:text-base">"Eu estava paralisado pelo medo de falhar. O protocolo me deu a clareza e a coragem para finalmente iniciar meu próprio negócio. Minha vida mudou completamente."</p>
+                </div>
+                <div class="bg-[#1f1f1f] p-5 sm:p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-3 sm:mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/60.jpg" alt="Foto Depoimento 2" class="w-12 h-12 sm:w-16 sm:h-16 rounded-full mr-3 sm:mr-4 border-2 border-vermelho-icones object-cover">
+                        <div>
+                            <h4 class="font-montserrat-bold text-white text-lg sm:text-xl">Rafael P.</h4>
+                            <p class="text-gray-400 text-xs sm:text-sm">Advogado, 42 anos</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic text-sm sm:text-base">"Achava que 'identidade' era papo furado. Hoje, entendo que era a peça que faltava. Sinto-me mais confiante e no controle da minha vida como nunca antes."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="oferta" class="bg-white text-[#111111] py-12 md:py-24 px-4 sm:px-6">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="font-montserrat-extrabold text-center text-2xl sm:text-3xl md:text-4xl mb-3 sm:mb-4">O Que Você Vai Receber Para Forjar Sua Nova Identidade:</h2>
+            <p class="text-center text-gray-700 text-md sm:text-lg md:text-xl mb-10 sm:mb-12 max-w-3xl mx-auto">Um arsenal completo para você parar de sobreviver e começar a liderar sua própria vida.</p>
+
+            <div class="space-y-8 sm:space-y-10">
+                <div class="bg-gray-100 p-5 sm:p-6 md:p-8 rounded-xl shadow-lg flex flex-col md:flex-row items-center gap-5 sm:gap-6 md:gap-8">
+                    <img src="https://i.imgur.com/21lLR97.png" alt="Mockup do Livro Principal" class="w-40 sm:w-48 md:w-60 h-auto rounded-md shadow-md object-contain">
+                    <div class="flex-1 text-center md:text-left mt-4 md:mt-0">
+                        <h3 class="font-montserrat-bold text-xl sm:text-2xl md:text-3xl text-[#1a1a1a] mb-2 sm:mb-3">📘 O Protocolo "Atue Como Se, Até Se Tornar™" - O Guia Definitivo</h3>
+                        <p class="text-gray-800 leading-relaxed mb-2 text-sm sm:text-base">O passo a passo detalhado para reprogramar sua mente, construir uma identidade inabalável e transformar sua realidade através da ação deliberada. Sem enrolação, direto ao ponto.</p>
+                        <p class="text-gray-600 text-xs sm:text-sm">(Formato Digital - Acesso Imediato)</p>
+                    </div>
+                </div>
+
+                <h3 class="font-montserrat-bold text-center text-xl sm:text-2xl md:text-3xl text-[#1a1a1a] pt-6 sm:pt-8">MAIS BÔNUS EXCLUSIVOS PARA ACELERAR SUA TRANSFORMAÇÃO:</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
+                    <div class="bg-gray-50 p-5 sm:p-6 rounded-xl shadow-md text-center flex flex-col items-center">
+                        <i class="fas fa-quote-right text-vermelho-icones text-4xl sm:text-5xl mb-3 sm:mb-4"></i>
+                        <h4 class="font-montserrat-bold text-lg sm:text-xl text-[#1a1a1a] mb-2">🎁 Bônus 1: Frases de Poder Diário</h4>
+                        <p class="text-gray-700 text-xs sm:text-sm leading-relaxed">Seu Arsenal de Reprogramação</p>
+                    </div>
+                    <div class="bg-gray-50 p-5 sm:p-6 rounded-xl shadow-md text-center flex flex-col items-center">
+                        <i class="fas fa-compass text-vermelho-icones text-4xl sm:text-5xl mb-3 sm:mb-4"></i>
+                        <h4 class="font-montserrat-bold text-lg sm:text-xl text-[#1a1a1a] mb-2">🎁 Bônus 2: Roteiro Estoico para Tomada de Decisões</h4>
+                        <p class="text-gray-700 text-xs sm:text-sm leading-relaxed">Navegando com Sabedoria</p>
+                    </div>
+                    <div class="bg-gray-50 p-5 sm:p-6 rounded-xl shadow-md text-center flex flex-col items-center">
+                        <i class="fas fa-eye text-vermelho-icones text-4xl sm:text-5xl mb-3 sm:mb-4"></i>
+                        <h4 class="font-montserrat-bold text-lg sm:text-xl text-[#1a1a1a] mb-2">🎁 Bônus 3: Mini Guia Visual de Reprogramação Mental</h4>
+                        <p class="text-gray-700 text-xs sm:text-sm leading-relaxed">Âncoras para Sua Nova Identidade</p>
+                    </div>
+                    <div class="bg-gray-50 p-5 sm:p-6 rounded-xl shadow-md text-center flex flex-col items-center md:col-start-1 md:col-end-3 lg:col-start-auto lg:col-end-auto"> 
+                        <i class="fas fa-comments text-vermelho-icones text-4xl sm:text-5xl mb-3 sm:mb-4"></i>
+                        <h4 class="font-montserrat-bold text-lg sm:text-xl text-[#1a1a1a] mb-2">🎁 Bônus 4: Templates de Voz Interna</h4>
+                        <p class="text-gray-700 text-xs sm:text-sm leading-relaxed">Reescrevendo Seu Diálogo Interno para o Sucesso</p>
+                    </div>
+                    <div class="bg-gray-50 p-5 sm:p-6 rounded-xl shadow-md text-center flex flex-col items-center md:col-start-3 md:col-end-4 lg:col-start-auto lg:col-end-auto"> 
+                        <i class="fas fa-flag-checkered text-vermelho-icones text-4xl sm:text-5xl mb-3 sm:mb-4"></i>
+                        <h4 class="font-montserrat-bold text-lg sm:text-xl text-[#1a1a1a] mb-2">🎁 Bônus 5: Desafio 7 Dias de Identidade</h4>
+                        <p class="text-gray-700 text-xs sm:text-sm leading-relaxed">Forjando Sua Nova Versão na Prática</p>
+                    </div>
+                </div>
+
+                <div class="text-center pt-8 sm:pt-10">
+                    <p class="font-montserrat-medium text-lg sm:text-xl md:text-2xl text-gray-800 mb-2">Tudo isso, o Protocolo completo mais os bônus exclusivos:</p>
+                    <p class="font-montserrat-extrabold text-2xl sm:text-3xl md:text-4xl text-vermelho-forca">Por apenas 7x de R$ 6,05</p>
+                    <p class="text-gray-600 text-sm sm:text-base">(Ou R$ 37,00 à vista)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="urgencia" class="bg-[#111111] py-10 md:py-16 px-4 sm:px-6 blinking-border">
+        <div class="container mx-auto max-w-3xl text-center">
+            <div class="mb-6 sm:mb-8">
+                <h3 class="font-montserrat-bold text-white text-xl sm:text-2xl md:text-3xl mb-2">ESTA OFERTA ESPECIAL TERMINA EM:</h3>
+                <div class="text-3xl sm:text-4xl md:text-5xl font-montserrat-extrabold text-vermelho-forca space-x-1 sm:space-x-2" id="countdown-timer">
+                    <span>01</span><span class="text-lg sm:text-xl text-white">Dia</span> :
+                    <span>17</span><span class="text-lg sm:text-xl text-white">Horas</span> :
+                    <span>33</span><span class="text-lg sm:text-xl text-white">Min</span> :
+                    <span>48</span><span class="text-lg sm:text-xl text-white">Seg</span>
+                </div>
+                </div>
+            <p class="font-montserrat-bold text-white text-lg sm:text-xl md:text-2xl leading-relaxed">
+                A cada dia que você adia, a identidade fraca ganha força. <span class="text-vermelho-forca">Decida agora.</span> Sua transformação não pode esperar.
+            </p>
+        </div>
+    </section>
+
+    <section id="acao-final" class="bg-vermelho-forca py-12 md:py-24 px-4 sm:px-6">
+        <div class="container mx-auto max-w-3xl text-center">
+            <h2 class="font-montserrat-extrabold text-white text-2xl sm:text-3xl md:text-4xl leading-tight mb-8 sm:mb-10">
+                Clique no botão abaixo e entre no campo de batalha da sua verdadeira identidade.
+            </h2>
+            <a href="https://pay.kiwify.com/CrQsgb3" target="_blank" class="bg-white text-black font-montserrat-extrabold py-4 px-8 text-lg sm:py-5 sm:px-12 md:py-6 md:px-16 sm:text-xl md:text-2xl rounded-lg border-4 border-black
+                                   hover:bg-black hover:text-white hover:border-vermelho-escuro transition-all duration-300 ease-in-out transform hover:scale-105 inline-block">
+                SIM, EU VOU AGIR COMO QUEM JÁ É
+            </a>
+        </div>
+    </section>
+
+    <footer class="bg-[#0a0a0a] text-center py-6 sm:py-8 px-4 sm:px-6">
+        <p class="text-gray-400 text-xs sm:text-sm">© <span id="currentYear"></span> Todos os direitos reservados. Seu Nome/Sua Empresa Aqui.</p>
+        <p class="text-gray-500 text-xs mt-1">Este site não é afiliado ao Facebook ou qualquer entidade do Facebook. Depois que você sair do Facebook, a responsabilidade não é deles e sim do nosso site.</p>
+    </footer>
+
+    <script src="https://www.youtube.com/iframe_api"></script> 
+    <script>
+        // Smooth scroll para âncoras
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId && (targetId.startsWith('https://pay.kiwify.com') || targetId.startsWith('http'))) {
+                    return;
+                }
+                e.preventDefault(); 
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        function startCountdown(duration, display) {
+            let timer = duration, days, hours, minutes, seconds;
+            const intervalId = setInterval(function () {
+                days = parseInt(timer / (60 * 60 * 24), 10);
+                hours = parseInt((timer % (60 * 60 * 24)) / (60 * 60), 10);
+                minutes = parseInt((timer % (60 * 60)) / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                days = days < 10 ? "0" + days : days;
+                hours = hours < 10 ? "0" + hours : hours;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+                
+                if (display) {
+                    display.innerHTML = `<span>${days}</span><span class="text-lg sm:text-xl text-white">Dia${days == "01" ? "" : "s"}</span> : <span>${hours}</span><span class="text-lg sm:text-xl text-white">Hora${hours == "01" ? "" : "s"}</span> : <span>${minutes}</span><span class="text-lg sm:text-xl text-white">Min</span> : <span>${seconds}</span><span class="text-lg sm:text-xl text-white">Seg</span>`;
+                }
+
+                if (--timer < 0) {
+                    timer = 0; 
+                    if (display) {
+                        display.innerHTML = `<span>00</span><span class="text-lg sm:text-xl text-white">Dias</span> : <span>00</span><span class="text-lg sm:text-xl text-white">Horas</span> : <span>00</span><span class="text-lg sm:text-xl text-white">Min</span> : <span>00</span><span class="text-lg sm:text-xl text-white">Seg</span> <p class="text-sm text-red-500 mt-2">Oferta Encerrada!</p>`;
+                    }
+                    clearInterval(intervalId);
+                }
+            }, 1000);
+        }
+        
+        // YouTube Player API
+        let player;
+        let videoPlaying = false;
+        const videoId = 'pi8GXfLeGGc'; 
+
+        function onYouTubeIframeAPIReady() {
+            if (typeof YT === 'undefined' || typeof YT.Player === 'undefined') {
+                console.error('YouTube Player API não carregou a tempo ou falhou.');
+                const playerContainer = document.getElementById('youtube-player');
+                if(playerContainer) {
+                     playerContainer.innerHTML = `<div class="w-full h-full flex items-center justify-center bg-black text-white p-4 text-center"><p class="text-sm sm:text-base">Erro: API do YouTube não carregou.<br>Tente recarregar a página.</p></div>`;
+                }
+                return;
+            }
+            try {
+                player = new YT.Player('youtube-player', {
+                    height: '100%', 
+                    width: '100%',
+                    videoId: videoId,
+                    playerVars: {
+                        'autoplay': 0, 
+                        'controls': 0, 
+                        'showinfo': 0, 
+                        'rel': 0,      
+                        'modestbranding': 1, 
+                        'loop': 0, 
+                        'fs': 0, 
+                        'iv_load_policy': 3 
+                    },
+                    events: {
+                        'onReady': onPlayerReady,
+                        'onStateChange': onPlayerStateChange,
+                        'onError': onPlayerError 
+                    }
+                });
+            } catch (e) {
+                console.error("Erro ao criar o player do YouTube:", e);
+                 const playerContainer = document.getElementById('youtube-player');
+                if(playerContainer) {
+                    playerContainer.innerHTML = `<div class="w-full h-full flex items-center justify-center bg-black text-white p-4 text-center"><p class="text-sm sm:text-base">Erro ao iniciar o player do vídeo.</p></div>`;
+                }
+            }
+        }
+
+        function onPlayerReady(event) {
+            // console.log("Player do YouTube pronto.");
+        }
+        
+        function onPlayerError(event) {
+            console.error("Erro no Player do YouTube. Código do erro:", event.data, "Video ID usado:", videoId);
+            const playerContainer = document.getElementById('youtube-player');
+            let errorMessage = `Ocorreu um erro ao carregar o vídeo (ID: ${videoId}).`;
+            switch(event.data) {
+                case 2: 
+                    errorMessage = `O ID do vídeo ('${videoId}') é inválido. Verifique o ID.`;
+                    break;
+                case 5: 
+                    errorMessage = `Erro no player HTML5 ao tentar carregar o vídeo (ID: ${videoId}).`;
+                    break;
+                case 100: 
+                    errorMessage = `Vídeo não encontrado (ID: ${videoId}). Pode ter sido removido ou ser privado.`;
+                    break;
+                case 101: 
+                case 150: 
+                    errorMessage = `O proprietário desabilitou a incorporação deste vídeo (ID: ${videoId}) em outros sites.`;
+                    break;
+                default:
+                    errorMessage = `Erro desconhecido (${event.data}) ao carregar o vídeo (ID: ${videoId}).`;
+            }
+            if(playerContainer) {
+                playerContainer.innerHTML = `<div class="w-full h-full flex items-center justify-center bg-black text-white p-4 text-center"><p class="text-sm sm:text-base">${errorMessage}</p></div>`;
+            }
+            const videoOverlay = document.getElementById('video-overlay');
+            if(videoOverlay) videoOverlay.style.display = 'none'; 
+        }
+
+        function onPlayerStateChange(event) {
+            const playPauseIcon = document.getElementById('play-pause-icon');
+            // Não faz nada com o ícone se ele não existir (ou estiver display:none)
+            // A lógica de videoPlaying ainda é útil para o togglePlayPause
+            if (event.data == YT.PlayerState.PLAYING) {
+                videoPlaying = true;
+                if (playPauseIcon) { // Verifica se o ícone existe antes de tentar modificar
+                    playPauseIcon.classList.remove('fa-play');
+                    playPauseIcon.classList.add('fa-pause');
+                }
+            } else if (event.data == YT.PlayerState.PAUSED) {
+                videoPlaying = false;
+                 if (playPauseIcon) {
+                    playPauseIcon.classList.remove('fa-pause');
+                    playPauseIcon.classList.add('fa-play');
+                }
+            } else if (event.data == YT.PlayerState.ENDED) {
+                videoPlaying = false;
+                 if (playPauseIcon) {
+                    playPauseIcon.classList.remove('fa-pause');
+                    playPauseIcon.classList.add('fa-play');
+                }
+            }
+        }
+
+        function togglePlayPause() {
+            if (!player || typeof player.playVideo !== 'function' || typeof player.pauseVideo !== 'function') {
+                console.error('Player do YouTube não está pronto ou não foi encontrado em togglePlayPause.');
+                return; 
+            }
+
+            if (videoPlaying) {
+                player.pauseVideo();
+            } else {
+                player.playVideo();
+            }
+        }
+
+        window.onload = function () {
+            const oneDay = 24 * 60 * 60;
+            const seventeenHours = 17 * 60 * 60;
+            const thirtyThreeMinutes = 33 * 60;
+            const fortyEightSeconds = 48;
+            const initialDuration = oneDay + seventeenHours + thirtyThreeMinutes + fortyEightSeconds;
+
+            const display = document.querySelector('#countdown-timer');
+            if (display) {
+                startCountdown(initialDuration, display); 
+            }
+
+            const videoOverlay = document.getElementById('video-overlay');
+            if (videoOverlay) {
+                videoOverlay.addEventListener('click', togglePlayPause);
+            }
+        };
+    </script>
+
+</body>
+</html>

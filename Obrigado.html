@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obrigado!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .font-montserrat-extrabold { font-weight: 800; }
+        .font-montserrat-bold { font-weight: 700; }
+        .font-montserrat-medium { font-weight: 500; }
+        
+        .bg-vermelho-forca { background-color: #a4161a; }
+        .text-vermelho-forca { color: #a4161a; }
+        .border-vermelho-forca { border-color: #a4161a; }
+        .bg-preto-profundo { background-color: #111111; }
+        .text-cinza-concreto { color: #1a1a1a; }
+
+        .checkmark-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #28a745; /* Verde sucesso */
+            margin: 0 auto 2rem auto;
+        }
+        .checkmark-circle i {
+            color: white;
+            font-size: 3rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen p-6 text-cinza-concreto">
+
+    <div class="bg-white p-8 sm:p-12 rounded-xl shadow-2xl max-w-2xl w-full text-center">
+        
+        <div class="checkmark-circle">
+            <i class="fas fa-check"></i>
+        </div>
+
+        <h1 class="font-montserrat-extrabold text-3xl sm:text-4xl md:text-5xl text-vermelho-forca mb-6">
+            OBRIGADO!
+        </h1>
+
+        <p class="font-montserrat-medium text-lg sm:text-xl text-gray-700 mb-4">
+            Sua decisão foi o primeiro passo para forjar a identidade que você nasceu para ter.
+        </p>
+        
+        <p class="text-gray-600 mb-8 leading-relaxed">
+            As informações de acesso ao Protocolo e todos os bônus foram enviadas para o seu e-mail. Verifique sua caixa de entrada (e também a pasta de spam/promoções, por via das dúvidas).
+        </p>
+
+        <div class="border-t border-gray-300 pt-8">
+            <h2 class="font-montserrat-bold text-xl sm:text-2xl text-cinza-concreto mb-4">Próximos Passos:</h2>
+            <ul class="text-left text-gray-600 space-y-3 list-inside list-none mx-auto max-w-md">
+                <li class="flex items-start">
+                    <i class="fas fa-envelope-open-text text-vermelho-forca mr-3 mt-1 text-lg"></i>
+                    <span><strong>Verifique seu e-mail:</strong> Procure pela mensagem da Kiwify.</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-book-open text-vermelho-forca mr-3 mt-1 text-lg"></i>
+                    <span><strong>Comece sua jornada:</strong> Acesse o material e inicie o primeiro módulo o quanto antes. A transformação começa agora.</span>
+                </li>
+                </ul>
+        </div>
+
+        </div>
+
+    <footer class="text-center py-8 mt-10">
+        <p class="text-gray-500 text-sm">&copy; <span id="currentYear"></span> Todos os direitos reservados. Seu Nome/Sua Empresa Aqui.</p>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
